@@ -1,4 +1,5 @@
-import {Recent} from '../interfaces/recent.interface';
+import {Recent} from '../models/recent';
+import {IRecent} from '../interfaces/recent.interface';
 
 export class StorageService {
 
@@ -31,11 +32,16 @@ export class StorageService {
   }
 
   addToRecent(url: string): void {
-    const recent = this.getItem<Recent[]>('recent', []);
+    const recent = this.getItem<IRecent[]>('recent', []);
     recent.unshift({
       url,
       date: Date.now()
     })
     this.setItem('recent', recent);
+  }
+
+  recent(): Recent[] {
+    return this.getItem<IRecent[]>('recent', [])
+      .map(item => new Recent(item.date, item.url));
   }
 }

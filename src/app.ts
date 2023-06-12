@@ -24,16 +24,14 @@ export class App extends PlayerPage {
       if (!checkUrl(this.url.value)) {
         return;
       }
-      this.player.src = this.url.value;
-      this.storageService.setItem('last', this.url.value);
+      this._setVideo(this.url.value);
       this.storageService.addToRecent(this.url.value);
+      this._generateRecentActivity();
       this.url.value = '';
     });
-
     this.player.addEventListener('loadeddata', () => {
       this.player.currentTime = this.storageService.getItem<number>(this.player.src, 0);
     });
-
     this.player.addEventListener('play', () => {
       this.intervalService.start(() => this.storageService.setItem(this.player.src, this.player.currentTime));
     });
@@ -48,6 +46,27 @@ export class App extends PlayerPage {
     if (lastVideo) {
       this.player.src = lastVideo;
     }
+    this._generateRecentActivity();
     return this;
+  }
+
+  private _generateRecentActivity(): void {
+    const recent = this.storageService.recent();
+    if (!recent.length) {
+      return;
+    }
+    this.recentActivityContainer.hidden = false;
+    this.recentActivityContainerBar.innerHTML = '';
+    recent.forEach(item => {
+      this.recentActivityContainerBar.append(item.element);
+      item.button.addEventListener('click', () => {
+        this._setVideo(item.button.getAttribute('data-url')!);
+      });
+    });
+  }
+
+  private _setVideo(url: string): void {
+    this.player.src = url;
+    this.storageService.setItem('last', url);
   }
 }

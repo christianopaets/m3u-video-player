@@ -2,6 +2,7 @@ import {StorageService} from './utils/storage.service';
 import {IntervalService} from './utils/interval.service';
 import {checkUrl} from './utils/check-url';
 import {PlayerPage} from './utils/player.page';
+import {createRecentBlock} from './utils/recent-block';
 
 export class App extends PlayerPage {
 
@@ -58,29 +59,11 @@ export class App extends PlayerPage {
     this.recentActivityContainer.hidden = false;
     this.recentActivityContainerBar.innerHTML = '';
     recent.forEach(item => {
-      const date = new Intl.DateTimeFormat('en-US', {
-        dateStyle: 'full',
-        timeStyle: 'short'
-      }).format(item.date)
-      const div = document.createElement('div');
-      div.classList.add('recent-activity-item');
-      div.innerHTML = `
-        <div class="recent-activity-item-title">
-          <span class="recent-activity-item-headline">Last played on</span>
-          <span class="recent-activity-item-supporting">${date}</span>
-        </div>
-        <button class="recent-activity-item-play" data-url="${item.url}">
-          <svg viewBox="0 0 24 24">
-            <use href="#play"/>
-          </svg>
-        </button>
-        <hr>
-      `;
+      const div = createRecentBlock(item);
       this.recentActivityContainerBar.append(div);
       const button = div.querySelector('.recent-activity-item-play')! as HTMLButtonElement;
       button.addEventListener('click', () => {
-        const url = button.getAttribute('data-url')!;
-        this._setVideo(url);
+        this._setVideo(button.getAttribute('data-url')!);
       });
     });
   }

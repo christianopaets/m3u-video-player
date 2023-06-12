@@ -37,3 +37,36 @@ body {
   height: 100%;
   background-color: var(--md-color-surface);
 }
+
+input:focus-visible {
+  outline-offset: 0;
+  outline: none;
+  border-color: var(--md-color-primary);
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 24px;
+  height: 100%;
+  width: 100%;
+  padding: 88px 24px 24px;
+  position: absolute;
+}
+
+.toolbar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  background-color: var(--md-color-surface-1);
+  flex-shrink: 0;
+}
+
+.toolbar-title {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: var(--md-color-on-surface);
+}

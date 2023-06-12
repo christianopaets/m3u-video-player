@@ -2,7 +2,6 @@ import {StorageService} from './utils/storage.service';
 import {IntervalService} from './utils/interval.service';
 import {checkUrl} from './utils/check-url';
 import {PlayerPage} from './utils/player.page';
-import {createRecentBlock} from './utils/recent-block';
 
 export class App extends PlayerPage {
 
@@ -59,11 +58,9 @@ export class App extends PlayerPage {
     this.recentActivityContainer.hidden = false;
     this.recentActivityContainerBar.innerHTML = '';
     recent.forEach(item => {
-      const div = createRecentBlock(item);
-      this.recentActivityContainerBar.append(div);
-      const button = div.querySelector('.recent-activity-item-play')! as HTMLButtonElement;
-      button.addEventListener('click', () => {
-        this._setVideo(button.getAttribute('data-url')!);
+      this.recentActivityContainerBar.append(item.element);
+      item.button.addEventListener('click', () => {
+        this._setVideo(item.button.getAttribute('data-url')!);
       });
     });
   }

@@ -1,33 +1,5 @@
-:root {
-  font-family: Roboto, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color-scheme: light dark;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-* {
-  box-sizing: border-box;
-  font-family: Roboto, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
-
-html {
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-width: 320px;
-  min-height: 100%;
-  height: 100%;
-  background-color: #fdfdf6;
-}
+@import url("root.css");
+@import url("recent-activity.css");
 
 .app {
   display: grid;
@@ -35,7 +7,8 @@ body {
   gap: 24px;
   height: 100%;
   width: 100%;
-  padding: 24px;
+  padding: 88px 24px 24px;
+  position: absolute;
 }
 
 .video-container {
@@ -51,7 +24,7 @@ body {
 
 .player {
   width: 100%;
-  border: 1px solid #79747E;
+  border: 1px solid var(--md-color-outline);
   border-radius: 12px;
 }
 
@@ -72,14 +45,14 @@ body {
 
 .video-url {
   background-color: transparent;
-  border: 1.5px solid #79747E;
+  border: 1.5px solid var(--md-color-outline);
   border-radius: 6px;
   width: 100%;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: .10px;
-  color: #48473a;
+  color: var(--md-color-on-surface);
   padding: 0 16px;
   height: 40px;
 }
@@ -91,8 +64,8 @@ body {
   border-radius: 20px;
   display: inline-flex;
   align-items: center;
-  background-color: #386a20;
-  color: #fff;
+  background-color: var(--md-color-primary);
+  color: var(--md-color-on-primry);
   box-shadow: none;
   border: none;
   font-size: 14px;
@@ -126,7 +99,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 24px;
-  background-color: #f4f1e4;
+  background-color: var(--md-color-surface-1);
   flex-shrink: 0;
 }
 
@@ -135,11 +108,12 @@ body {
   font-size: 22px;
   line-height: 28px;
   letter-spacing: 0;
-  color: #48473a;
+  color: var(--md-color-on-surface);
 }
 
 input:focus-visible {
   outline-offset: 0;
   outline: none;
-  border-color: #386a20;
+  border-color: var(--md-color-primary);
 }
+

@@ -1,34 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <title>M3U Video Player</title>
-  </head>
-  <body>
-  <div class="toolbar">
-    <span class="toolbar-title">M3U Video Player</span>
-  </div>
-    <div id="app" class="app">
-      <section class="video-container">
-        <div class="video">
-          <video id="player" class="player" controls></video>
-        </div>
-        <div class="controls">
-          <div class="controls-url">
-            <label for="video-url" hidden>Video url</label>
-            <input name="video-url"
-                    id="video-url"
-                    class="video-url"
-                    placeholder="Enter video url"
-            >
-          </div>
-          <button class="controls-button" id="controls-submit">Watch</button>
-        </div>
-      </section>
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>M3U Video Player</title>
+</head>
+<body>
+<div class="toolbar">
+  <span class="toolbar-title">M3U Video Player</span>
+</div>
+<div id="app" class="app">
+  <section class="video-container">
+    <div class="video">
+      <video id="player" class="player" controls></video>
     </div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+    <div class="controls">
+      <div class="controls-url">
+        <label for="video-url" hidden>Video url</label>
+        <input name="video-url"
+               id="video-url"
+               class="video-url"
+               placeholder="Enter video url"
+        >
+      </div>
+      <button class="controls-button" id="controls-submit">Watch</button>
+    </div>
+  </section>
+  <section id="recent-activity" class="recent-activity" hidden>
+    <span class="recent-activity-title">Recent activity</span>
+    <!-- Example list -->
+    <div id="recent-activity-bar" class="recent-activity-bar">
+      <!-- Example list item -->
+      <div class="recent-activity-item" hidden>
+        <div class="recent-activity-item-title">
+          <span class="recent-activity-item-headline">Last played on</span>
+          <span class="recent-activity-item-supporting">12.01.1997 13:45</span>
+        </div>
+        <button class="recent-activity-item-play">
+          <svg viewBox="0 0 24 24">
+            <use href="#play"/>
+          </svg>
+        </button>
+        <hr>
+      </div>
+      <!-- End example list item -->
+    </div>
+    <!-- End example list -->
+  </section>
+</div>
+<div hidden>
+  <svg viewBox="0 0 59 62" xmlns="http://www.w3.org/2000/svg">
+    <svg class="svg-icon" id="play" fill="currentColor" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+      <path d="M509.683235 61.691037c-247.329015 0-447.848934 200.519919-447.848934 447.863261 0 247.331062 200.519919 447.852004 447.848934 447.852004 247.331062 0 447.866331-200.519919 447.866331-447.852004C957.549565 262.210957 757.014296 61.691037 509.683235 61.691037zM712.38075 532.75265l0 1.069355-305.282938 201.956641c-4.439102 5.989411-11.513218 9.918907-19.569708 9.918907-13.46364 0-24.408923-10.945283-24.408923-24.437575 0-0.868787 0.157589-1.707898 0.25685-2.548032l-0.25685-0.168846L363.119181 300.56652l0.25685-0.127913c-0.099261-0.868787-0.25685-1.707898-0.25685-2.587941 0-13.507642 10.945283-24.437575 24.408923-24.437575 7.6574 0 14.361079 3.570315 18.872836 9.05012l305.97981 202.811102 0 1.069355c9.907651 3.115967 17.164938 12.268418 17.164938 23.210631C729.545688 520.498558 722.287377 529.651009 712.38075 532.75265z"/>
+    </svg>
+  </svg>
+</div>
+<script type="module" src="/src/main.ts"></script>
+</body>
 </html>

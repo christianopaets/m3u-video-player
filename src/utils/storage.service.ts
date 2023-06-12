@@ -38,4 +38,8 @@ export class StorageService {
     })
     this.setItem('recent', recent);
   }
+
+  recent(): Recent[] {
+    return this.getItem('recent', []);
+  }
 }

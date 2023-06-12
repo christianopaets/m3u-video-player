@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>M3U Video Player</title>
+  </head>
+  <body>
+  <div class="toolbar">
+    <span class="toolbar-title">M3U Video Player</span>
+  </div>
+    <div id="app" class="app">
+      <section class="video-container">
+        <div class="video">
+          <video id="player" class="player" controls></video>
+        </div>
+        <div class="controls">
+          <div class="controls-url">
+            <label for="video-url" hidden>Video url</label>
+            <input name="video-url"
+                    id="video-url"
+                    class="video-url"
+                    placeholder="Enter video url"
+            >
+          </div>
+          <button class="controls-button" id="controls-submit">Watch</button>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

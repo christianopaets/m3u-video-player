@@ -1,0 +1,145 @@
+:root {
+  font-family: Roboto, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Roboto, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100%;
+  height: 100%;
+  background-color: #fdfdf6;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 24px;
+  height: 100%;
+  width: 100%;
+  padding: 24px;
+}
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.video {
+  display: flex;
+  align-items: center;
+}
+
+.player {
+  width: 100%;
+  border: 1px solid #79747E;
+  border-radius: 12px;
+}
+
+.controls {
+  display: flex;
+  gap: 16px;
+}
+
+.controls-url {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.controls-url label {
+  font-weight: 500;
+}
+
+.video-url {
+  background-color: transparent;
+  border: 1.5px solid #79747E;
+  border-radius: 6px;
+  width: 100%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: .10px;
+  color: #48473a;
+  padding: 0 16px;
+  height: 40px;
+}
+
+.controls-button {
+  cursor: pointer;
+  height: 40px;
+  padding: 0 24px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  background-color: #386a20;
+  color: #fff;
+  box-shadow: none;
+  border: none;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: .10px;
+  transition: background-color 150ms ease-out;
+  position: relative;
+}
+
+.controls-button::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  border-radius: 20px;
+  transition: background-color 150ms ease-out;
+}
+
+.controls-button:hover::after {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+.controls-button:active::after {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.toolbar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  background-color: #f4f1e4;
+  flex-shrink: 0;
+}
+
+.toolbar-title {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: #48473a;
+}
+
+input:focus-visible {
+  outline-offset: 0;
+  outline: none;
+  border-color: #386a20;
+}
